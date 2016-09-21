@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Sticky Menu</title>
+      <script src="../jquery-1.11.3.js"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+      <link href='http://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
+      <style>
+        body {
+          font-family: 'Vollkorn', serif;
+        }
+        #header {
+          float: left;
+          margin-right: 10px;
+        }
+        #site-name {
+          font-family: 'Bitter', serif;
+          font-size: 24px;
+        }
+        li {
+          float: left;
+          margin-right: 20px;
+          list-style-type: none;
+        }
+        ul.menu {
+          clear: left;
+          margin-left: 10px;
+          padding-top: 30px;
+          font-family: 'Lora', serif;
+        }
+        ul.menu a {
+          color: #666;
+          text-transform: uppercase;
+          text-decoration: none;
+          border-top: 1px solid #ccc;
+          border-bottom: 1px solid #ccc;
+        }
+        ul.menu a:hover {
+          color: #ccc;
+        }
+        .fa-cubes:before {
+          font-size: 100px;
+          margin-left: 50px;
+        }
+        #content {
+          max-width: 550px;
+          margin-left: 50px;
+          margin-top: 60px;
+        }
+        .fixed {
+          position: fixed;
+          top: 0;
+          padding: 40px;
+          background-color: #fff;
+          opacity: 0.8;
+          width: 550px;
+          margin: 0;
+          left: 0;
+        }
+        
+      </style>
+
+      <script>
+
+      jQuery(document).ready( function() {
+
+        var menu = jQuery('ul.menu');
+
+        var menuOffset = menu.offset().top;
+        var previousScroll = 0;
+        
+        jQuery(window).scroll( function () {
+
+            var currentScroll = jQuery(this).scrollTop();
+
+            if (currentScroll > previousScroll) {
+              menu.fadeOut();
+            }
+            else {
+              
+              if (currentScroll > menuOffset) {
+                menu.fadeIn();
+                menu.addClass('fixed');
+              } 
+              else {
+                //menu.fadeIn();
+                menu.removeClass('fixed');
+              }
+              
+            }
+
+            previousScroll = currentScroll;
+
+        });
+
+      });
+
+      </script>
+      
+  </head>
+  <body>
+
+    <div id="header">
+      <i class="fa fa-cubes"></i>
+    </div>
+
+    <div id="site-name">Ryan Boehm<br>
+     Web Development</div>
+    
+    <ul class="menu">
+      <li><a href="#">About</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+
+    <div id="content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed placerat sodales eros sed efficitur. Duis quis malesuada arcu. Morbi diam mi, fermentum id ultrices in, placerat et elit. Morbi lorem ligula, fermentum nec mauris quis, porta finibus orci. In hac habitasse platea dictumst. Fusce vitae magna tellus. In quis diam ut tellus viverra convallis. Nam rutrum interdum ullamcorper. Integer aliquet accumsan purus, a feugiat lectus congue eget.
+
+      Ut posuere consequat urna in bibendum. Maecenas enim ligula, aliquam sit amet orci vitae, venenatis pulvinar leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam interdum dolor vel libero condimentum scelerisque. Pellentesque nibh lacus, aliquet elementum orci vel, porta rhoncus nisi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam elementum est nunc, non tincidunt purus porta a. Duis dapibus vel nisi ac posuere.
+
+      Proin lacus metus, venenatis a condimentum ut, vulputate in dolor. Aliquam eget pulvinar enim. Etiam sodales nibh vel ipsum scelerisque tincidunt. Proin viverra consequat nulla sit amet suscipit. Fusce maximus sit amet dui quis rutrum. Vivamus suscipit porttitor purus nec porttitor. Sed scelerisque lectus id ipsum ultricies, sit amet convallis dolor imperdiet. Donec euismod malesuada mollis. Phasellus gravida vulputate massa sit amet iaculis. Phasellus ac quam in magna lobortis congue non ut est. Donec sed enim mi. Fusce nisi ipsum, sagittis in nunc ut, consectetur malesuada massa. Morbi semper a diam dignissim dapibus. Nullam suscipit urna dictum felis vehicula, sed fringilla enim elementum.
+
+      Morbi at nunc bibendum, suscipit velit et, sagittis justo. Quisque orci libero, bibendum et elit at, ullamcorper feugiat libero. Etiam consectetur at purus non finibus. Suspendisse elit elit, egestas vel dui eu, venenatis elementum lectus. Duis condimentum sit amet justo eget laoreet. Nunc luctus non dui id ornare. Aenean mattis, justo et auctor consectetur, est diam maximus enim, eu interdum est sem quis neque. Vestibulum non nisl faucibus, egestas magna sed, tempus purus. Nam blandit ante at sem egestas, quis fringilla nisi blandit. Sed quis tellus tellus. Phasellus ac odio tortor. Nulla fermentum, mauris nec sodales posuere, dolor ligula cursus justo, ac vulputate turpis arcu in sapien. Nulla facilisi. Aliquam sit amet pharetra justo. Morbi in massa vel diam tristique dignissim.
+
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed placerat sodales eros sed efficitur. Duis quis malesuada arcu. Morbi diam mi, fermentum id ultrices in, placerat et elit. Morbi lorem ligula, fermentum nec mauris quis, porta finibus orci. In hac habitasse platea dictumst. Fusce vitae magna tellus. In quis diam ut tellus viverra convallis. Nam rutrum interdum ullamcorper. Integer aliquet accumsan purus, a feugiat lectus congue eget.
+
+      Ut posuere consequat urna in bibendum. Maecenas enim ligula, aliquam sit amet orci vitae, venenatis pulvinar leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam interdum dolor vel libero condimentum scelerisque. Pellentesque nibh lacus, aliquet elementum orci vel, porta rhoncus nisi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam elementum est nunc, non tincidunt purus porta a. Duis dapibus vel nisi ac posuere.
+
+      Proin lacus metus, venenatis a condimentum ut, vulputate in dolor. Aliquam eget pulvinar enim. Etiam sodales nibh vel ipsum scelerisque tincidunt. Proin viverra consequat nulla sit amet suscipit. Fusce maximus sit amet dui quis rutrum. Vivamus suscipit porttitor purus nec porttitor. Sed scelerisque lectus id ipsum ultricies, sit amet convallis dolor imperdiet. Donec euismod malesuada mollis. Phasellus gravida vulputate massa sit amet iaculis. Phasellus ac quam in magna lobortis congue non ut est. Donec sed enim mi. Fusce nisi ipsum, sagittis in nunc ut, consectetur malesuada massa. Morbi semper a diam dignissim dapibus. Nullam suscipit urna dictum felis vehicula, sed fringilla enim elementum.
+
+      Morbi at nunc bibendum, suscipit velit et, sagittis justo. Quisque orci libero, bibendum et elit at, ullamcorper feugiat libero. Etiam consectetur at purus non finibus. Suspendisse elit elit, egestas vel dui eu, venenatis elementum lectus. Duis condimentum sit amet justo eget laoreet. Nunc luctus non dui id ornare. Aenean mattis, justo et auctor consectetur, est diam maximus enim, eu interdum est sem quis neque. Vestibulum non nisl faucibus, egestas magna sed, tempus purus. Nam blandit ante at sem egestas, quis fringilla nisi blandit. Sed quis tellus tellus. Phasellus ac odio tortor. Nulla fermentum, mauris nec sodales posuere, dolor ligula cursus justo, ac vulputate turpis arcu in sapien. Nulla facilisi. Aliquam sit amet pharetra justo. Morbi in massa vel diam tristique dignissim.
+
+      Morbi at nunc bibendum, suscipit velit et, sagittis justo. Quisque orci libero, bibendum et elit at, ullamcorper feugiat libero. Etiam consectetur at purus non finibus. Suspendisse elit elit, egestas vel dui eu, venenatis elementum lectus. Duis condimentum sit amet justo eget laoreet. Nunc luctus non dui id ornare. Aenean mattis, justo et auctor consectetur, est diam maximus enim, eu interdum est sem quis neque. Vestibulum non nisl faucibus, egestas magna sed, tempus purus. Nam blandit ante at sem egestas, quis fringilla nisi blandit. Sed quis tellus tellus. Phasellus ac odio tortor. Nulla fermentum, mauris nec sodales posuere, dolor ligula cursus justo, ac vulputate turpis arcu in sapien. Nulla facilisi. Aliquam sit amet pharetra justo. Morbi in massa vel diam tristique dignissim.
+
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed placerat sodales eros sed efficitur. Duis quis malesuada arcu. Morbi diam mi, fermentum id ultrices in, placerat et elit. Morbi lorem ligula, fermentum nec mauris quis, porta finibus orci. In hac habitasse platea dictumst. Fusce vitae magna tellus. In quis diam ut tellus viverra convallis. Nam rutrum interdum ullamcorper. Integer aliquet accumsan purus, a feugiat lectus congue eget.
+
+      Ut posuere consequat urna in bibendum. Maecenas enim ligula, aliquam sit amet orci vitae, venenatis pulvinar leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam interdum dolor vel libero condimentum scelerisque. Pellentesque nibh lacus, aliquet elementum orci vel, porta rhoncus nisi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam elementum est nunc, non tincidunt purus porta a. Duis dapibus vel nisi ac posuere.
+
+      Proin lacus metus, venenatis a condimentum ut, vulputate in dolor. Aliquam eget pulvinar enim. Etiam sodales nibh vel ipsum scelerisque tincidunt. Proin viverra consequat nulla sit amet suscipit. Fusce maximus sit amet dui quis rutrum. Vivamus suscipit porttitor purus nec porttitor. Sed scelerisque lectus id ipsum ultricies, sit amet convallis dolor imperdiet. Donec euismod malesuada mollis. Phasellus gravida vulputate massa sit amet iaculis. Phasellus ac quam in magna lobortis congue non ut est. Donec sed enim mi. Fusce nisi ipsum, sagittis in nunc ut, consectetur malesuada massa. Morbi semper a diam dignissim dapibus. Nullam suscipit urna dictum felis vehicula, sed fringilla enim elementum.
+
+      Morbi at nunc bibendum, suscipit velit et, sagittis justo. Quisque orci libero, bibendum et elit at, ullamcorper feugiat libero. Etiam consectetur at purus non finibus. Suspendisse elit elit, egestas vel dui eu, venenatis elementum lectus. Duis condimentum sit amet justo eget laoreet. Nunc luctus non dui id ornare. Aenean mattis, justo et auctor consectetur, est diam maximus enim, eu interdum est sem quis neque. Vestibulum non nisl faucibus, egestas magna sed, tempus purus. Nam blandit ante at sem egestas, quis fringilla nisi blandit. Sed quis tellus tellus. Phasellus ac odio tortor. Nulla fermentum, mauris nec sodales posuere, dolor ligula cursus justo, ac vulputate turpis arcu in sapien. Nulla facilisi. Aliquam sit amet pharetra justo. Morbi in massa vel diam tristique dignissim.
+    </div>
+   
+  </body>
+
+</html>
+
